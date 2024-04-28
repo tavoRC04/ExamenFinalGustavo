@@ -1,0 +1,208 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MenuPrincipal.Master.cs" Inherits="ExamenFinal.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Catálogo</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans&display=swap");
+body {
+  background: #28305a;
+  height: 100vh;
+  margin: 0 20px;
+}
+.pie {
+  -webkit-tap-highlight-color: transparent;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 400px;
+  left: -200px;
+  position: absolute;
+  top: -200px;
+  width: 400px;
+  transform: translateX(-200px) translateY(-200px);
+  transition: transform 300ms;
+}
+.pie-color:hover {
+  opacity: 0.85;
+}
+.pie-color:active {
+  opacity: 0.7;
+}
+.pie1 {
+  clip-path: polygon(200px 200px, 344px 450px, 0 450px);
+  transition-delay: 30ms;
+}
+.pie2 {
+  clip-path: polygon(200px 200px, 344px 450px, 450px 344px);
+  transition-delay: 60ms;
+}
+.pie3 {
+  clip-path: polygon(200px 200px, 450px 0, 450px 344px);
+  transition-delay: 90ms;
+}
+.pie-color {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.pie-color1 {
+  background: linear-gradient(135deg, #f12711, #f5af19);
+  clip-path: polygon(200px 200px, 344px 450px, 0 450px);
+}
+.pie-color2 {
+  background: linear-gradient(135deg, #444, #7e84f9);
+  clip-path: polygon(200px 200px, 344px 450px, 450px 344px);
+}
+.pie-color3 {
+  background: linear-gradient(135deg, #444, #b7e13f);
+  clip-path: polygon(200px 200px, 450px 0, 450px 344px);
+}
+.card {
+  left: 216px;
+  position: absolute;
+  top: 300px;
+  width: 46px;
+}
+.discount {
+  left: 288px;
+  position: absolute;
+  top: 258px;
+  width: 46px;
+}
+.cart {
+  left: 324px;
+  position: absolute;
+  top: 188px;
+  width: 46px;
+}
+.menu {
+  -webkit-tap-highlight-color: transparent;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 200px;
+  left: -100px;
+  position: absolute;
+  top: -100px;
+  width: 200px;
+}
+.hamburger {
+  cursor: pointer;
+  height: 46px;
+  left: 58%;
+  position: relative;
+  top: 58%;
+  width: 46px;
+}
+.title {
+  color: white;
+  font-family: "Crimson Text", serif;
+  font-size: 80px;
+  line-height: 84px;
+  margin-top: 60px;
+  text-align: center;
+}
+.body {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 28px;
+  margin: 30px auto;
+  max-width: 600px;
+  text-align: center;
+}
+.hamburger path {
+  transition: transform 300ms;
+}
+.hamburger path:nth-child(1) {
+  transform-origin: 25% 29%;
+}
+.hamburger path:nth-child(2) {
+  transform-origin: 50% 50%;
+}
+.hamburger path:nth-child(3) {
+  transform-origin: 75% 72%;
+}
+.hamburger path:nth-child(4) {
+  transform-origin: 75% 29%;
+}
+.hamburger path:nth-child(5) {
+  transform-origin: 25% 72%;
+}
+.active .pie {
+  transform: translateX(0) translateY(0);
+}
+.active .hamburger path:nth-child(1) {
+  transform: rotate(45deg);
+}
+.active .hamburger path:nth-child(2) {
+  transform: scaleX(0);
+}
+.active .hamburger path:nth-child(3) {
+  transform: rotate(45deg);
+}
+.active .hamburger path:nth-child(4) {
+  transform: rotate(-45deg);
+}
+.active .hamburger path:nth-child(5) {
+  transform: rotate(-45deg);
+}
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="pie pie1" onclick="document.body.classList.remove('active')">
+  <div class="pie-color pie-color1">
+   <a href="CatalogoAgente.aspx"> <svg class="card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+       <path
+         d="M99.98 27.38c0-7.597-6.18-13.777-13.78-13.777H13.78C6.18 13.603 0 19.783 0 27.38v45.842C0 80.82 6.18 87 13.778 87H86.2c7.6 0 13.8-6.18 13.8-13.778v-45.84zm-92.678 0c0-3.555 2.9-6.433 6.455-6.433H86.18c3.555 0 6.455 2.878 6.455 6.434v4.213H7.302zM86.18 79.657H13.757c-3.556 0-6.455-2.9-6.455-6.434V44.185h85.312v29.037c.02 3.556-2.88 6.434-6.434 6.434zM23.852 60.82s-3.725-.973-4.466-1.122c-.783-.19-.867-.635-.867-1.015v-.424c0-.255.02-.51.23-.72.128-.127.32-.212.53-.212h3.47c.298 0 .51.064.827.91l.042.127c.04.17.19.445.72.445.316 0 .824-.085 1.438-.254.57-.17 1.058-.635 1.29-1.207.234-.593.17-1.228-.19-1.757-.846-1.334-2.264-2.2-3.936-2.37 0-.128-.02-.297-.02-.51 0-.845-.87-1.523-1.97-1.523s-1.968.657-1.968 1.524c0 .19 0 .36-.02.487-2.668.128-4.572 2.117-4.572 4.848v.804c0 2.137 1.333 4 3.238 4.508l5.354 1.46c.254.064.423.318.423.635v.466c0 .19 0 .7-.232.932-.127.148-.318.21-.487.21h-3.47c-.276 0-.403-.083-.488-.19-.233-.232-.317-.613-.38-.867-.064-.19-.234-.444-.763-.444-.338 0-.846.086-1.418.234-.572.148-1.038.592-1.292 1.164-.254.592-.19 1.248.127 1.8.868 1.46 2.307 2.348 3.916 2.432v.487c0 .445.233.847.636 1.143.36.254.825.38 1.333.38h.02c1.1 0 1.968-.676 1.968-1.523v-.508c2.603-.212 4.593-2.37 4.593-5.1v-.636c.022-2.2-1.48-4.085-3.618-4.614zm7.704 10.54H83.98v-4.19H31.555z"
+       />
+     </svg></a>
+  </div>
+</div>
+                <div class="pie pie1" onclick="document.body.classList.remove('active')">
+  <div class="pie-color pie-color1">
+   <a href="Login.aspx"> <svg class="card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+       <path
+         d="M99.98 27.38c0-7.597-6.18-13.777-13.78-13.777H13.78C6.18 13.603 0 19.783 0 27.38v45.842C0 80.82 6.18 87 13.778 87H86.2c7.6 0 13.8-6.18 13.8-13.778v-45.84zm-92.678 0c0-3.555 2.9-6.433 6.455-6.433H86.18c3.555 0 6.455 2.878 6.455 6.434v4.213H7.302zM86.18 79.657H13.757c-3.556 0-6.455-2.9-6.455-6.434V44.185h85.312v29.037c.02 3.556-2.88 6.434-6.434 6.434zM23.852 60.82s-3.725-.973-4.466-1.122c-.783-.19-.867-.635-.867-1.015v-.424c0-.255.02-.51.23-.72.128-.127.32-.212.53-.212h3.47c.298 0 .51.064.827.91l.042.127c.04.17.19.445.72.445.316 0 .824-.085 1.438-.254.57-.17 1.058-.635 1.29-1.207.234-.593.17-1.228-.19-1.757-.846-1.334-2.264-2.2-3.936-2.37 0-.128-.02-.297-.02-.51 0-.845-.87-1.523-1.97-1.523s-1.968.657-1.968 1.524c0 .19 0 .36-.02.487-2.668.128-4.572 2.117-4.572 4.848v.804c0 2.137 1.333 4 3.238 4.508l5.354 1.46c.254.064.423.318.423.635v.466c0 .19 0 .7-.232.932-.127.148-.318.21-.487.21h-3.47c-.276 0-.403-.083-.488-.19-.233-.232-.317-.613-.38-.867-.064-.19-.234-.444-.763-.444-.338 0-.846.086-1.418.234-.572.148-1.038.592-1.292 1.164-.254.592-.19 1.248.127 1.8.868 1.46 2.307 2.348 3.916 2.432v.487c0 .445.233.847.636 1.143.36.254.825.38 1.333.38h.02c1.1 0 1.968-.676 1.968-1.523v-.508c2.603-.212 4.593-2.37 4.593-5.1v-.636c.022-2.2-1.48-4.085-3.618-4.614zm7.704 10.54H83.98v-4.19H31.555z"
+       />
+     </svg></a>
+  </div>
+</div>
+
+<div class="menu" onclick="document.body.classList.toggle('active')">
+  <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+        <g
+          fill="none"
+          stroke="#000"
+          stroke-width="7.999"
+          stroke-linecap="round"
+        >
+          <path d="M 55,26.000284 L 24.056276,25.999716" />
+          <path d="M 24.056276,49.999716 L 75.943724,50.000284" />
+          <path d="M 45,73.999716 L 75.943724,74.000284" />
+          <path d="M 75.943724,26.000284 L 45,25.999716" />
+          <path d="M 24.056276,73.999716 L 55,74.000284" />
+        </g>
+      </svg>
+</div>
+
+<div class="body">
+     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+     </asp:ContentPlaceHolder>
+</div>
+       
+    </form>
+</body>
+</html>
